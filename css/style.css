@@ -1,0 +1,731 @@
+@charset "utf-8";
+
+body {
+  width: 1500px;
+  background: #d1e4c7;
+}
+
+main {
+  width: 1000px;
+  margin-left: 250px;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.news_list {
+  background-color: #fff;
+}
+
+.contentA,
+.contentB {
+  width: 50%;
+}
+
+.main {
+  display: flex;
+  width: 1000px;
+  margin-left: 250px;
+}
+
+/* FOOTER*/
+footer {
+  background-color: #d1d1d1;
+  width: 100%;
+  height: 150px;
+}
+
+footer a {
+  color: #666;
+  text-align: right;
+  text-decoration: none;
+}
+
+footer #footer_inner {
+  clear: both;
+  margin-right: 35%;
+  margin-left: 35%;
+  text-align: center;
+}
+
+
+/*========= ページトップのためのCSS ===============*/
+
+/*リンクの形状*/
+#page-top a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3db108;
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.6rem;
+  transition: all 0.3s;
+}
+
+#page-top a:hover {
+  background: #777;
+}
+
+/*リンクを右下に固定*/
+#page-top {
+  position: fixed;
+  right: 100px;
+  bottom: 10px;
+  z-index: 2;
+  /*はじめは非表示*/
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+
+#page-top.UpMove {
+  animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+
+#page-top.DownMove {
+  animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(100px);
+  }
+}
+
+/*==================================================
+スライダーのためのcss
+===================================*/
+
+#pickup_box {
+  width: 1500px;
+  height: 800px;
+}
+
+#pickup_box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#pickup_box ul li {
+  display: none;
+  position: absolute;
+}
+
+#pickup_box ul li.now {
+  display: block;
+}
+
+#pickup_box img {
+  width: 1520px;
+  height: 800px;
+}
+
+/*========= 検索窓のためのCSS ===============*/
+
+/*検索boxの大きさ*/
+
+
+/*検索窓のエリア*/
+#search-wrap {
+  position: absolute;
+  /*絶対配置にして*/
+  z-index: 2;
+  /*最前面に設定。数字は変更可*/
+  top: 10px;
+  right: 10px;
+}
+
+/*テキスト入力input設定*/
+#search-text {
+  appearance: none;
+  /*SafariやChromeのデフォルトの設定を無効*/
+  width: 60px;
+  /*テキスト入力エリアが伸びる前の横幅*/
+  height: 60px;
+  padding: 20px;
+  border: none;
+  background: #d1e4c7 url(../img/info\ 画像\ のコピー.png) no-repeat 17px center;
+  /*虫眼鏡アイコンを背景に表示*/
+  background-size: 60px 60px;
+  transition: all 0.5s;
+  /*transitionを使ってスムースに伸ばす*/
+  outline: none;
+  cursor: pointer;
+  /*カーソルを指マークに*/
+}
+
+/*テキスト入力inputにフォーカスした時の形状*/
+#search-text:focus {
+  width: 250px;
+  /*テキスト入力エリアが伸びる後の横幅*/
+  padding: 20px 0 20px 70px;
+
+}
+
+/*========= 途中からハンバーガーメニューに変化するのためのCSS ===============*/
+
+/*========= ボタンのためのCSS ===============*/
+
+/*ボタン全体の形状*/
+.openbtn1 {
+  /*はじめは非表示に*/
+  display: none;
+  /*ボタンの位置*/
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+  /*ボタンの形状*/
+  background: #666;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+/*ボタンのアイコン設定*/
+.openbtn1 span {
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #fff;
+  width: 45%;
+}
+
+.openbtn1 span:nth-of-type(1) {
+  top: 15px;
+}
+
+.openbtn1 span:nth-of-type(2) {
+  top: 23px;
+}
+
+.openbtn1 span:nth-of-type(3) {
+  top: 31px;
+}
+
+/*activeクラスが付与された後のボタンのアイコン設定*/
+.openbtn1.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn1.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+/*fadeDownクラスが付与された後のボタンの出現アニメーション設定*/
+.fadeDown {
+  animation-name: fadeDownAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  display: block;
+}
+
+@keyframes fadeDownAnime {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/*========= ヘッダーナビゲーションのためのCSS ===============*/
+
+/*==ヘッダーの形状*/
+#header {
+  height: 70px;
+  width: 1480px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #d1e4c7;
+  color: #000000;
+  text-align: center;
+  padding: 20px;
+}
+
+/*.doneクラスがついたヘッダー*/
+#header.dnone {
+  opacity: 0;
+  /*透過0にして非表示に*/
+}
+
+/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたら*/
+#header.dnone.panelactive {
+  opacity: 1;
+  /*不透明にして出現*/
+}
+
+
+/*==ヘッダーのテキストナビゲーションの形状*/
+#g-navi ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+#g-navi ul li a {
+  display: block;
+  text-decoration: none;
+  color: #666;
+  padding: 10px;
+}
+
+#g-navi ul li.current a,
+#g-navi ul li a:hover {
+  color: #fff;
+}
+
+/*.doneクラスがついたヘッダーのテキストナビゲーションの形状*/
+#header.dnone #g-navi {
+  /*固定位置にして最背面に*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /*高さと幅*/
+  width: 100%;
+  height: 100vh;
+  /*天地中央＆テキスト中央揃え*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /*はじめは透過0に*/
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたナビゲーションの形状*/
+#header.dnone.panelactive #g-navi {
+  opacity: 1;
+  /*不透明に*/
+  z-index: 3;
+  /*最前面に*/
+  background: #e2e4eb;
+}
+
+#header.dnone.panelactive #g-navi ul {
+  display: block;
+  /*flexの横並びをblockにして縦並びに*/
+}
+
+/*リストの形状*/
+
+#header.dnone.panelactive #g-navi li a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+/*==================================================
+共通　横並びのための設定
+===================================*/
+
+.gnavi {
+  display: flex;
+  flex-wrap: wrap;
+  /*スマホ表示折り返し用なのでPCのみなら不要*/
+  list-style: none;
+}
+
+.gnavi li a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+
+
+/*==================================================
+　5-3-1 中心から外に線が伸びる（下部）
+===================================*/
+
+.gnavi li a {
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+}
+
+.gnavi li.current a,
+.gnavi li a:hover {
+  color: #0481A2;
+}
+
+.gnavi li a::after {
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  /*線の形状*/
+  width: 80%;
+  height: 2px;
+  background: #0481A2;
+  /*アニメーションの指定*/
+  transition: all .3s;
+  transform: scale(0, 1);
+  /*X方向0、Y方向1*/
+  transform-origin: center top;
+  /*上部中央基点*/
+}
+
+/*現在地とhoverの設定*/
+.gnavi li.current a::after,
+.gnavi li a:hover::after {
+  transform: scale(1, 1);
+  /*X方向にスケール拡大*/
+}
+
+/*====newsの欄(index)====*/
+section {
+  position: relative;
+  z-index: 1;
+}
+
+section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section a {
+  text-decoration: none;
+  color: #333;
+}
+
+.news_list {
+  margin: 0 5%;
+}
+
+.news_list_item {
+  padding: 25px 0;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.news_list_item:first-child {
+  border-top: 1px solid #E6E6E6;
+}
+
+.news_list_item a {
+  position: relative;
+  display: flex;
+  padding-right: 30px;
+}
+
+.news_list_date {
+  font-size: 15px;
+  display: flex;
+  margin-right: 15px;
+  align-items: center;
+}
+
+.news_item {
+  background: #F6C6A2;
+  border-radius: 14px;
+  width: 6em;
+  /* 親要素の文字サイズを基準 */
+  text-align: center;
+  margin-left: 20px;
+}
+
+.arrow {
+  width: 25px;
+  height: 1px;
+  background: #707070;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.arrow::after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 1px;
+  background: #707070;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 0px;
+  bottom: 2px;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .news_list_item a {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .news_list_item a {
+    font-size: 14px;
+  }
+
+
+}
+
+@media screen and (max-width: 480px) {
+  .arrow {
+    display: none;
+  }
+
+  .news_list_item a {
+    padding-right: 0;
+  }
+}
+
+/*==================================================
+ニュースティッカーのためのcss(info)
+===================================*/
+/*ニュース1行の周りの余白*/
+.slider a {
+  display: block;
+  background: #fff;
+  padding: 20px;
+}
+
+/*日付*/
+.slider span {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-right: 10px;
+  color: #777;
+}
+
+.slider li {
+  text-align: justify;
+  z-index: -120;
+}
+
+/*768px以下の見た目　※1行のままにしたい場合は不要*/
+@media screen and (max-width:768px) {
+  .slider {
+    padding: 20px;
+    background: #fff;
+  }
+
+  .slider li {
+    border-bottom: 1px dashed #ccc;
+  }
+
+  .slider li:last-child {
+    border-bottom: none;
+  }
+
+  .slider span {
+    display: block;
+    padding-bottom: 10px;
+  }
+}
+
+/*===カレンダー===*/
+
+.calendar-wrap {
+  margin: 40px auto auto 150px;
+  max-width: 1110px;
+  display: block;
+  background-color: #fff;
+}
+
+@media (max-width: 767.98px) {
+  .calendar-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.calendar th {
+  padding: 6px 10px;
+}
+
+@media (max-width: 767.98px) {
+
+  .calendar th,
+  .calendar td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .calendar th {
+    padding: 3px 6px;
+  }
+}
+
+.calendar .sun {
+  color: #e27b79;
+  background-color: #ec9d96;
+}
+
+.calendar .sat {
+  color: #7ab6f3;
+  background-color: #e7f6fd;
+}
+
+.calendar .mute {
+  color: #aaa;
+}
+
+.calendar .today {
+  background-color: #7d7d7d;
+}
+
+.calendar .off {
+  background-color: #f75853;
+}
+
+@media (max-width: 767px) {
+  body{
+    width: 750px;
+  }
+  main{
+    width: 500px;
+  }
+  body {
+    width: 1500px;
+    background: #d1e4c7;
+  }
+  
+  main {
+    width: 1000px;
+    margin-left: 250px;
+    text-align: center;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+  .wrapper {
+    width: 45%;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+  
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .news_list {
+    background-color: #fff;
+  }
+  
+  .contentA,
+  .contentB {
+    width: 50%;
+  }
+  
+  .main {
+    display: flex;
+    width: 100%;
+    margin-left: 250px;
+  }
+  
+  /* FOOTER*/
+  footer {
+    background-color: #d1d1d1;
+    width: 100%;
+    height: 150px;
+  }
+  
+  footer a {
+    color: #666;
+    text-align: right;
+    text-decoration: none;
+  }
+  
+  footer #footer_inner {
+    clear: both;
+    margin-right: 35%;
+    margin-left: 35%;
+    text-align: center;
+  }
+}

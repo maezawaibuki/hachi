@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+main{
+    display: block;
+}
+.name{
+    margin-right: 70%;
+    margin-bottom: 20px;
+}
+main h1{
+    background-color: wheat;
+    margin-right: 70%;
+    width: 100%;
+}
+.name1{
+margin-right: 75%;
+}
+#name1{
+    margin-right: 55%;
+}
+main p{
+    margin-right: 80%;
+}
